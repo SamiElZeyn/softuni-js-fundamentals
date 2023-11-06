@@ -1,7 +1,6 @@
 function solve (num1, num2, num3){
 
     let arr = [num1, num2, num3];
-    let isPositive = true;
     let negative = 0;
     let positive = 0;
 
@@ -18,7 +17,6 @@ function solve (num1, num2, num3){
     } else {
         console.log('Negative');
     }
-
 }
 solve (-6,
     -12,
