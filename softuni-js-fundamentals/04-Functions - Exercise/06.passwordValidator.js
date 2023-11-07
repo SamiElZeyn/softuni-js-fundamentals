@@ -1,10 +1,10 @@
-function passValidator (input){
+function passValidator (pass){
 
-    let passL = passLength(input);
-    let letAndDig = lettersAndDigitsOnly(input);
-    let minTwoDig = atLeast2Digits(input);
+    let isValidLength = passLength(pass);
+    let isOnlyNumsDigits = lettersAndDigitsOnly(pass);
+    let isMin2Digits = atLeast2Digits(pass);
 
-    if (passL && letAndDig && minTwoDig){
+    if (isValidLength && isOnlyNumsDigits && isMin2Digits){
         console.log('Password is valid');
     }
 
