@@ -7,9 +7,16 @@ function adressBook (input){
         adressBook[name] = adress;
     }
 
-    let sortedData = Object.fromEntries(Object.entries(adressBook).sort());
+    let entries = Object.entries(adressBook);
+    entries.sort((a, b) => a[0].localeCompare(b[0]));
+
+    let sorted = {};
+
+    for (let [name, adress] of entries){
+        sorted[name] = adress;
+    }
     
-    for (let [name, adress] of Object.entries(sortedData)){
+    for (let [name, adress] of Object.entries(sorted)){
         console.log(`${name} -> ${adress}`);
     }
 
