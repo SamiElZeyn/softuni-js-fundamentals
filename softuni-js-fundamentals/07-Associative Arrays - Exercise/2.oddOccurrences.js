@@ -1,23 +1,26 @@
-function oddOccurrences (str){
+function oddOccurrences(input) {
+    let words = input.split(" ").map(el => el.toLowerCase());
+    let collection = {};
 
-    let words = {};
-
-    let infoArr = str.split(" ");
-    
-    for (let word of infoArr){
-        let lowerCaseWord = word.toLowerCase();     
-        if (!(lowerCaseWord in words)){
-            words[lowerCaseWord] = 0;
+    collection = words.reduce((acc, cur, i) => {
+        if (!acc.hasOwnProperty(cur)) {
+            acc[cur] = 1;
+        } else {
+            acc[cur]++;
         }
 
-        words[lowerCaseWord]++;
-    }
+        return acc;
+    }, {});
 
-    let oddOccurrences = Object.keys(words).filter(word => words[word] % 2 !== 0);
+    collection = Object.entries(collection)
+        .filter(([word, value]) => {
+            if (value % 2 !== 0) {
+                return word;
+            }
+        })
+        .map(el => el[0]);
 
-    let result = oddOccurrences.map(word => `${word} ${words[word]}`);
-
-    console.log(result);
-
+    console.log(collection.join(" "));
 }
+
 oddOccurrences ('Cake IS SWEET is Soft CAKE sweet Food')
