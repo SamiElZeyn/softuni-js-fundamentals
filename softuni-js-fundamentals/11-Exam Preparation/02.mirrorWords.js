@@ -20,7 +20,6 @@ function mirrorWords ([input]) {
    
     if (count == 0){
         console.log("No word pairs found!");
-        console.log("No mirror words!");
     } else {
         console.log(`${count} word pairs found!`);
     }
