@@ -10,7 +10,7 @@ function worldTour (arr){
         if (action == 'Add Stop'){
             let idx = Number(tokens.shift());
             let addStop = tokens.shift();
-            if (idx > 0 && idx < stops.length) {
+            if (idx >= 0 && idx < stops.length) {
                 let firstHalf = stops.slice(0, idx);
                 let secondHalf = stops.slice(idx);
                 stops = firstHalf + addStop + secondHalf;
@@ -18,20 +18,27 @@ function worldTour (arr){
         } else if (action == 'Remove Stop') {
             let startIdx = Number(tokens.shift());
             let endIdx = Number(tokens.shift());
-            if ((startIdx > 0 && startIdx < stops.length) && (endIdx > 0 && endIdx < stops.length)) {
+            if ((startIdx >= 0) && (startIdx <= endIdx) && (endIdx < stops.length)) {
                 let left = stops.slice(0, startIdx);
                 let right = stops.slice(endIdx + 1);
                 stops = left + right;
             }   
         } else if (action == 'Switch') {
-            let oldStop = tokens.shift();
-            let newStop = tokens.shift();
-            let oldStopIdx = oldStop.indexOf(stops);
-            let newStopIdx = newStop.indexOf(stops);
+            let oldWord = tokens.shift();
+            let newWord = tokens.shift();
+            if (stops.includes(oldWord)) {
+
+                let parts = stops.split(oldWord);
+                stops = parts.join(newWord);
+            }
+            
         }
+        console.log(stops);
 
         command = arr.shift();
     }
+
+    console.log(`Ready for world tour! Planned stops: ${stops}`);
 }
 worldTour ((["Hawai::Cyprys-Greece",
 "Add Stop:7:Rome",
