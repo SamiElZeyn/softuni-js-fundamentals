@@ -46,7 +46,7 @@ function manOWar(arr) {
             let idx = Number(tokens[1]);
             let healthToRestore = Number(tokens[2]);
 
-            if (idx > 0 && idx < pirateShip.length) {
+            if (idx >= 0 && idx < pirateShip.length) {
                 let newHp = pirateShip[idx] + healthToRestore > maxHealth ? maxHealth - pirateShip[idx] : healthToRestore;
                 pirateShip[idx] += newHp;
             } else {
