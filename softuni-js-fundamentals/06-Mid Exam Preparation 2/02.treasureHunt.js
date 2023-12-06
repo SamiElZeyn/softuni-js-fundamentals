@@ -1,8 +1,8 @@
-function tresureHunt (arr) {
+function tresureHunt(arr) {
 
     let loot = arr.shift().split("|");
     let command = arr.shift();
-    
+
 
     while (command != 'Yohoho!') {
 
@@ -22,8 +22,8 @@ function tresureHunt (arr) {
             let count = Number(tokens.shift());
             let stolen = loot.splice(-count);
             console.log(stolen.join(", "));
-            
-            
+
+
         }
 
         command = arr.shift()
@@ -35,15 +35,15 @@ function tresureHunt (arr) {
         for (let el of loot) {
             sum += el.length;
         }
-    
+
         let average = (sum / loot.length);
         console.log(`Average treasure gain: ${average.toFixed(2)} pirate credits.`);
     }
-   
+
 }
-tresureHunt (["Gold|Silver|Bronze|Medallion|Cup",
-"Loot Wood Gold Coins",
-"Loot Silver Pistol",
-"Drop 3",
-"Steal 3",
-"Yohoho!"])
+tresureHunt(["Gold|Silver|Bronze|Medallion|Cup",
+    "Loot Wood Gold Coins",
+    "Loot Silver Pistol",
+    "Drop 3",
+    "Steal 3",
+    "Yohoho!"])
